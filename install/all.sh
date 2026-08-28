@@ -8,3 +8,4 @@ sudo -v
 export INSTALL_DIR="~/.local/share/my-archy/install"
 
 source "$INSTALL_DIR/packages/all.sh"
+source "$INSTALL_DIR/config/all.sh"
