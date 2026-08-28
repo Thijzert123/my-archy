@@ -9,14 +9,11 @@ for i = 1, smw.get_amount_of_workspaces() do
     local code = tostring(i + 9) -- Use code:10 value instead of number 1 (otherwise it doens't work idk)
     if n == "10" then n = "0" end -- Optional if you configured 10 workspaces: bind workspace 10 to SUPER + 0
     -- Switch to the Nth workspace on the currently focused monitor.
-    hl.unbind("SUPER + code:" .. code)
-    o.bind("SUPER + code:" .. code, "Switch to workspace " .. n, smw.workspace(n))
+    hl.bind("SUPER + code:" .. code, smw.workspace(n))
     -- Move the active window to the Nth workspace on the currently focused monitor
-    hl.unbind("SUPER + SHIFT + code:" .. code)
-    o.bind("SUPER + SHIFT + code:" .. code, "Move window to workspace " .. n, smw.move_to_workspace(n))
+    hl.bind("SUPER + SHIFT + code:" .. code, smw.move_to_workspace(n))
     -- Move the active window to the Nth workspace on the currently focused monitor silently
-    hl.unbind("SUPER + SHIFT + ALT + code:" .. code)
-    o.bind("SUPER + SHIFT + ALT + code:" .. code, "Move window to workspace " .. n .. " silently", smw.move_to_workspace_silent(n))
+    hl.bind("SUPER + SHIFT + ALT + code:" .. code, smw.move_to_workspace_silent(n))
 end
 
 hl.bind("SUPER + RETURN", hl.dsp.exec_cmd("foot"))
