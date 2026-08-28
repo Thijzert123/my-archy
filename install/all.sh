@@ -3,4 +3,6 @@
 # Stop script when errors occur
 set -eEo pipefail
 
-source ~/.local/share/my-archy/install/packages/all.sh
+export INSTALL_DIR="~/.local/share/my-archy/install"
+
+source "$INSTALL_DIR/packages/all.sh"
