@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Catch all errors and stop script
+# Stop script when errors occur
 set -eEo pipefail
 
 echo "Updating system and installing git..."
