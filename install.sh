@@ -3,6 +3,8 @@
 # Stop script when errors occur
 set -eEo pipefail
 
+sudo -v
+
 echo "Updating system and installing git..."
 sudo pacman -Syu --noconfirm --needed git
 
