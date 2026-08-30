@@ -3,17 +3,17 @@
 # Stop script when errors occur
 set -eEo pipefail
 
-# Fix TUIs
-exec </dev/tty
-exec >/dev/tty
-exec 2>/dev/tty
-
 export MOUNTPOINT="/mnt"
 
 pacman -Sy --noconfirm --needed git
 git clone https://github.com/Thijzert123/my-archy.git /tmp/my-archy
 
-exec archinstall --config /tmp/my-archy/install/archinstall-config.json
+# Fix TUIs
+exec </dev/tty
+exec >/dev/tty
+exec 2>/dev/tty
+
+archinstall --config /tmp/my-archy/install/archinstall-config.json
 
 cp -r /tmp/my-archy "$MOUNTPOINT/opt/my-archy"
 
