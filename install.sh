@@ -3,14 +3,16 @@
 # Stop script when errors occur
 set -eEo pipefail
 
+export MOUNTPOINT="/mnt"
+
 archinstall --config-url "https://github.com/Thijzert123/my-archy/raw/refs/heads/main/install/archinstall-config.json"
 
-mkdir -p /mnt/usr/local/libexec/my-archy
-mkdir -p /mnt/var/lib/my-archy
+mkdir -p "$MOUNTPOINT/usr/local/libexec/my-archy"
+mkdir -p "$MOUNTPOINT/var/lib/my-archy"
 
-curl https://github.com/Thijzert123/my-archy/raw/refs/heads/main/install/first-boot.sh -o /mnt/usr/local/libexec/my-archy-first-boot.sh
-curl https://github.com/Thijzert123/my-archy/raw/refs/heads/main/install/user-setup.sh -o /mnt/usr/local/libexec/my-archy-user-setup.sh
-chmod +x /mnt/usr/local/libexec/my-archy-first-boot.sh /mnt/usr/local/libexec/my-archy-user-setup.sh
+curl https://github.com/Thijzert123/my-archy/raw/refs/heads/main/install/first-boot.sh -o "$MOUNTPOINT/usr/local/libexec/my-archy-first-boot.sh"
+curl https://github.com/Thijzert123/my-archy/raw/refs/heads/main/install/user-setup.sh -o "$MOUNTPOINT/mnt/usr/local/libexec/my-archy-user-setup.sh"
+chmod +x "$MOUNTPOINT/usr/local/libexec/my-archy-first-boot.sh" "$MOUNTPOINT/mnt/usr/local/libexec/my-archy-user-setup.sh"
 
 cat > "/mnt/etc/systemd/system/my-archy-first-boot.service" <<'EOF'
 [Unit]
@@ -28,4 +30,4 @@ RemainAfterExit=yes
 WantedBy=multi-user.target
 EOF
 
-systemctl enable --root=/mnt my-archy-first-boot.service
+systemctl enable --root="$MOUNTPOINT" my-archy-first-boot.service
