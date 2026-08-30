@@ -8,7 +8,7 @@ export MOUNTPOINT="/mnt"
 pacman -Sy --noconfirm --needed git
 git clone https://github.com/Thijzert123/my-archy.git /tmp/my-archy
 
-archinstall --config /tmp/my-archy/install/archinstall-config.json
+exec archinstall --config /tmp/my-archy/install/archinstall-config.json
 
 cp -r /tmp/my-archy "$MOUNTPOINT/opt/my-archy"
 
