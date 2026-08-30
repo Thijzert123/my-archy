@@ -1,8 +1,9 @@
 # Installation
 
 - Create and boot a fresh [Arch ISO](https://archlinux.org/download)
-- Run this command:
+- Run these commands:
   ```bash
-  curl -fsSL "https://github.com/Thijzert123/my-archy/raw/refs/heads/main/install.sh" | bash
+  curl -fsSLO "https://github.com/Thijzert123/my-archy/raw/refs/heads/main/install.sh"
+  ./install.sh
   ```
 - Reboot
