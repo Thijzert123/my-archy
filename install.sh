@@ -8,12 +8,7 @@ export MOUNTPOINT="/mnt"
 pacman -Sy --noconfirm --needed git
 git clone https://github.com/Thijzert123/my-archy.git /tmp/my-archy
 
-# Fix TUIs
-exec </dev/tty
-exec >/dev/tty
-exec 2>/dev/tty
-
-archinstall --config /tmp/my-archy/install/archinstall-config.json
+script -q /dev/null -c 'archinstall --config /tmp/my-archy/install/archinstall-config.json'
 
 cp -r /tmp/my-archy "$MOUNTPOINT/opt/my-archy"
 
