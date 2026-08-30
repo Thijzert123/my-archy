@@ -1,13 +1,5 @@
 #!/bin/bash
 
-TEMP_SUDO="/etc/sudoers.d/my-archy-temp"
-
-cleanup() {
-    rm -f "$TEMP_SUDO"
-}
-
-trap cleanup EXIT
-
 USERNAME="$(
     getent passwd |
         awk -F: '
@@ -19,6 +11,22 @@ USERNAME="$(
             }
         '
 )"
+
+TEMP_SUDO="/etc/sudoers.d/my-archy-temp"
+
+cleanup() {
+    rm -f "$TEMP_SUDO"
+}
+
+trap cleanup EXIT
+
+printf '%s ALL=(ALL:ALL) NOPASSWD: ALL\n' "$USERNAME" \
+    > "$TEMP_SUDO"
+
+chmod 0440 "$TEMP_SUDO"
+
+# Verify sudoers file
+visudo -cf "$TEMP_SUDO"
 
 runuser -u "$USERNAME" -- "/opt/my-archy/install/pre-boot/yay.sh"
 runuser -u "$USERNAME" -- "/opt/my-archy/install/pre-boot/packages.sh"
