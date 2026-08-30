@@ -10,8 +10,9 @@ archinstall --config-url "https://github.com/Thijzert123/my-archy/raw/refs/heads
 mkdir -p "$MOUNTPOINT/usr/local/libexec/my-archy"
 mkdir -p "$MOUNTPOINT/var/lib/my-archy"
 
-curl https://github.com/Thijzert123/my-archy/raw/refs/heads/main/install/first-boot.sh -o "$MOUNTPOINT/usr/local/libexec/my-archy-first-boot.sh"
-curl https://github.com/Thijzert123/my-archy/raw/refs/heads/main/install/user-setup.sh -o "$MOUNTPOINT/mnt/usr/local/libexec/my-archy-user-setup.sh"
+git clone https://github.com/Thijzert123/my-archy.git /tmp/my-archy
+cp /tmp/my-archy/install/first-boot.sh "$MOUNTPOINT/usr/local/libexec/my-archy-first-boot.sh"
+cp /tmp/my-archy/install/user-setup.sh "$MOUNTPOINT/usr/local/libexec/my-archy-user-setup.sh"
 chmod +x "$MOUNTPOINT/usr/local/libexec/my-archy-first-boot.sh" "$MOUNTPOINT/mnt/usr/local/libexec/my-archy-user-setup.sh"
 
 cat > "/mnt/etc/systemd/system/my-archy-first-boot.service" <<'EOF'
@@ -31,3 +32,7 @@ WantedBy=multi-user.target
 EOF
 
 systemctl enable --root="$MOUNTPOINT" my-archy-first-boot.service
+
+cp -r /tmp/my-archy "$MOUNTPOINT/tmp/my-archy"
+
+arch-chroot "$MOUNTPOINT" /tmp/my-archy/install/pre-boot.sh
