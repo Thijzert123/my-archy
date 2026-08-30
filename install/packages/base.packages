@@ -11,10 +11,8 @@ zoxide
 fzf
 openssh
 firefox
-less
 xdg-utils
 nautilus
-tree
 tk
 base-devel
 rustup
