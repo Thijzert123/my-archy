@@ -6,7 +6,7 @@ set -eEo pipefail
 export MOUNTPOINT="/mnt"
 
 pacman -Sy --noconfirm --needed git
-git clone https://github.com/Thijzert123/my-archy.git /tmp/my-archy
+[ -d /tmp/my-archy ] || git clone https://github.com/Thijzert123/my-archy.git /tmp/my-archy
 
 archinstall --config /tmp/my-archy/install/archinstall-config.json
 
@@ -30,3 +30,7 @@ EOF
 systemctl enable --root="$MOUNTPOINT" my-archy-first-boot.service
 
 arch-chroot "$MOUNTPOINT" /opt/my-archy/install/pre-boot.sh
+
+if [[ -n "${REBOOT:-}" ]]; then
+    reboot
+fi
