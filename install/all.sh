@@ -12,3 +12,4 @@ export INSTALL_DIR="/tmp/my-archy/install"
 
 source "$INSTALL_DIR/packages/all.sh"
 source "$INSTALL_DIR/config/all.sh"
+source "$INSTALL_DIR/dotfiles.sh"
