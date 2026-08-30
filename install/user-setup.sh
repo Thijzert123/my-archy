@@ -1,5 +1,4 @@
 #!/bin/bash
-# IN user-setup/dotfiles.sh !!!!!
-#sudo pacman -S --noconfirm --needed chezmoi
 
-#chezmoi init Thijzert123/my-archy --apply
+source /opt/my-archy/install/user-setup/dotfiles.sh
+source /opt/my-archy/install/user-setup/hypr-plugins.sh
