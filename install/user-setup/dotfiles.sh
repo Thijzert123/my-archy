@@ -1,3 +1,3 @@
 #!/bin/bash
 
-CHEZMOI
+chezmoi init Thijzert123/my-archy --apply
