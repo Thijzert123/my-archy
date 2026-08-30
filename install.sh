@@ -6,9 +6,10 @@ set -eEo pipefail
 export MOUNTPOINT="/mnt"
 
 git clone https://github.com/Thijzert123/my-archy.git /tmp/my-archy
-cp -r /tmp/my-archy "$MOUNTPOINT/opt/my-archy"
 
 archinstall --config /tmp/my-archy/install/archinstall-config.json
+
+cp -r /tmp/my-archy "$MOUNTPOINT/opt/my-archy"
 
 cat > "$MOUNTPOINT/etc/systemd/system/my-archy-first-boot.service" <<'EOF'
 [Unit]
