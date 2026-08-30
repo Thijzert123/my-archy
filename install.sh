@@ -8,7 +8,6 @@ export MOUNTPOINT="/mnt"
 archinstall --config-url "https://github.com/Thijzert123/my-archy/raw/refs/heads/main/install/archinstall-config.json"
 
 mkdir -p "$MOUNTPOINT/usr/local/libexec/my-archy"
-mkdir -p "$MOUNTPOINT/var/lib/my-archy"
 
 git clone https://github.com/Thijzert123/my-archy.git /tmp/my-archy
 cp /tmp/my-archy/install/first-boot.sh "$MOUNTPOINT/usr/local/libexec/my-archy-first-boot.sh"
@@ -20,7 +19,6 @@ cat > "/mnt/etc/systemd/system/my-archy-first-boot.service" <<'EOF'
 Description=my-archy first boot setup
 Wants=network-online.target
 After=network-online.target
-ConditionPathExists=!/var/lib/my-archy/first-boot-done
 
 [Service]
 Type=oneshot
