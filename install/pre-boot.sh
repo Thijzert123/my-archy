@@ -20,6 +20,6 @@ USERNAME="$(
         '
 )"
 
-runuser -u "$USERNAME" -- "/tmp/my-archy/install/pre-boot/yay.sh"
-runuser -u "$USERNAME" -- "/tmp/my-archy/install/pre-boot/packages.sh"
-runuser -u "$USERNAME" -- "/tmp/my-archy/install/pre-boot/rust.sh"
+runuser -u "$USERNAME" -- "/opt/my-archy/install/pre-boot/yay.sh"
+runuser -u "$USERNAME" -- "/opt/my-archy/install/pre-boot/packages.sh"
+runuser -u "$USERNAME" -- "/opt/my-archy/install/pre-boot/rust.sh"
