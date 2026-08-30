@@ -3,7 +3,7 @@ ttf-jetbrains-mono-nerd
 noto-fonts
 noto-fonts-emoji
 git
-nvim
+neovim
 chezmoi
 starship
 eza
