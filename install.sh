@@ -3,6 +3,11 @@
 # Stop script when errors occur
 set -eEo pipefail
 
+# Fix TUIs
+exec </dev/tty
+exec >/dev/tty
+exec 2>/dev/tty
+
 export MOUNTPOINT="/mnt"
 
 pacman -Sy --noconfirm --needed git
