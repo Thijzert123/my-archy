@@ -3,6 +3,7 @@ require("~/.config/hypr/bindings.lua")
 require("~/.config/hypr/looknfeel.lua")
 
 require("~/.config/hypr/apps/walker.lua")
+require("~/.config/hypr/apps/foot.lua")
 
 -- Place 2nd monitor to the left (DP indicaters sometimes change)
 hl.monitor({ output = "DP-1", mode = "preferred", position = "1920x0", scale = "1" })
