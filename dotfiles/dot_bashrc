@@ -4,7 +4,7 @@
 
 ##### ENVS ######
 export PATH="$PATH:~/.cargo/bin"
-
+export EDITOR="nvim"
 
 ##### ALIASES ######
 
