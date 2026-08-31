@@ -16,12 +16,14 @@ for i = 1, smw.get_amount_of_workspaces() do
     hl.bind("SUPER + SHIFT + ALT + code:" .. code, smw.move_to_workspace_silent(n))
 end
 
-hl.bind("SUPER + RETURN", hl.dsp.exec_cmd("foot"))
-hl.bind("SUPER + SHIFT + RETURN", hl.dsp.exec_cmd("firefox"))
-hl.bind("SUPER + SHIFT + F", hl.dsp.exec_cmd("nautilus"))
-hl.bind("SUPER + SHIFT + B", hl.dsp.exec_cmd("firefox"))
-hl.bind("SUPER + SHIFT + ALT + B", hl.dsp.exec_cmd("firefox --private-window"))
-hl.bind("SUPER + SHIFT + M", hl.dsp.exec_cmd("spotify"))
+hl.bind("SUPER + SPACE", hl.dsp.exec_cmd("uwsm app -- walker --width 644 --maxheight 300 --minheight 300"))
+
+hl.bind("SUPER + RETURN", hl.dsp.exec_cmd("uwsm app -- foot"))
+hl.bind("SUPER + SHIFT + RETURN", hl.dsp.exec_cmd("uwsm app -- firefox"))
+hl.bind("SUPER + SHIFT + F", hl.dsp.exec_cmd("uwsm app -- nautilus"))
+hl.bind("SUPER + SHIFT + B", hl.dsp.exec_cmd("uwsm app -- firefox"))
+hl.bind("SUPER + SHIFT + ALT + B", hl.dsp.exec_cmd("uwsm app -- firefox --private-window"))
+hl.bind("SUPER + SHIFT + M", hl.dsp.exec_cmd("uwsm app -- spotify"))
 
 hl.bind("SUPER + W", hl.dsp.window.close())
 hl.bind("SUPER + Q", hl.dsp.window.close())

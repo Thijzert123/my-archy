@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=btop
+Comment=btop
+Exec=xdg-terminal-exec btop
+Terminal=false
+Type=Application
+Icon=btop
+StartupNotify=true
