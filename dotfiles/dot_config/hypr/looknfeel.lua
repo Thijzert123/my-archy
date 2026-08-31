@@ -1,6 +1,6 @@
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 
-local active_border_color = { colors = { "rgba(33ccffee)", "rgba(00ff99ee)" }, angle = 45 }
+local active_border_color = { colors = { "rgba(7aa2f7ee)" }, angle = 45 }
 local inactive_border_color = "rgba(595959aa)"
 
 hl.config({
@@ -24,6 +24,9 @@ hl.config({
 
     shadow = {
       enabled = false,
+      range = 2,
+      render_power = 3,
+      color = "rgba(1a1a1aee)",
     },
 
     blur = {

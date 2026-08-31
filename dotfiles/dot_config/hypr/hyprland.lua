@@ -9,7 +9,7 @@ hl.monitor({ output = "DP-2", mode = "preferred", position = "0x0", scale = "1" 
 
 hl.env("GDK_SCALE", "1")
 
-local suppressMaximizeRule = hl.window_rule({
+hl.window_rule({
     -- Ignore maximize requests from all apps. You'll probably like this.
     name  = "suppress-maximize-events",
     match = { class = ".*" },
@@ -51,6 +51,11 @@ hl.config({
         touchpad = {
             natural_scroll = false,
         },
+    },
+
+    ecosystem = {
+        no_update_news = true,
+	no_donation_nag = true,
     },
 })
 
