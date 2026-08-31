@@ -19,3 +19,4 @@ rustup
 foot
 waybar
 wiremix
+xdg-terminal-exec
