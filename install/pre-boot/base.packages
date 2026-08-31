@@ -21,5 +21,11 @@ waybar
 wiremix
 xdg-terminal-exec
 cliphist
-walker-bin
-elephant
+walker
+elephant-symbols
+elephant-websearch
+elephant-files
+elephant-clipboard
+elephant-providerlist
+elephant-desktopapplications
+elephant-calc
